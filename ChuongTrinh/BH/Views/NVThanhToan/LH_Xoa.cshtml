@@ -1,0 +1,42 @@
+﻿@model BH.Models.LoaiHang
+
+@{
+    ViewBag.Title = "LH_Xoa";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+
+<div class="center_content">
+
+    <h3>Bạn có chắc muốn xóa mặt hàng này?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên Loại:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenLoaiHang)
+            </dd>
+
+            <dt>
+                Hình Ảnh:
+            </dt>
+
+            <dd>
+                <img src="@Url.Content("~/HinhAnh/HinhAnh(LoaiHang)/"+ Model.HinhAnh)" width="200px" />
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Quay lại", "LoaiHang")
+            </div>
+        }
+    </div>
+</div>

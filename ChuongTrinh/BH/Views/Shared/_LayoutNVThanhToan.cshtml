@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>CỬA HÀNG BÁCH HÓA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="iecss.css" />
+    <![endif]-->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/boxOver.js"></script>
+    <!--Table-->
+    <script src="~/Content/js/jquery.dataTables.js"></script>
+    <link href="~/Content/css/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable()
+        }); S
+    </script>
+    <!--Table-->
+</head>
+<body>
+    <div id="main_container">
+        <div class="top_bar">
+            <div class="top_search">
+                <div class="search_text"><a>Tìm kiếm</a></div>
+                <input type="text" class="search_input" name="search" />
+                <input type="image" src="~/images/search.gif" class="search_bt" />
+            </div>
+        </div>
+        <div id="header">
+            <div class="oferte_content">
+                <div class="oferta">
+                    <div class="oferta_content">
+                        <img src="~/images/giohang.png" width="105" height="92" alt="" border="0" class="oferta_img" />
+
+                        <div class="oferta_title">CỬA HÀNG BÁCH HÓA</div>
+                        <div class="oferta_text"> Chào mừng các bạn đến với Công ty Bách Hóa của chúng tôi. <br /> Chúc các bạn mua sắm vui vẻ </div>
+                        <a href="details.html" class="details">Chi tiết</a>
+
+                    </div>
+                </div>
+                <div class="top_divider"><img src="~/images/header_divider.png" alt="" width="1" height="164" /></div>
+            </div>
+            <!-- end of oferte_content-->
+        </div>
+        <div id="main_content">
+            <div id="menu_tab">
+                <ul class="menu">
+                    <li><a href="~/NVThanhToan/Index" class="nav1">Trang chủ</a></li>
+                    <li class="divider"></li>
+                    <li><a href="~/NVThanhToan/CuaHang" class="nav2">Cửa hàng</a></li>
+                    <li class="divider"></li>
+                    <li><a href="~/NVThanhToan/LoaiHang" class="nav2">Loại hàng</a></li>
+                    <li class="divider"></li>            
+                    <li><a href="~/NVThanhToan/NhanVien" class="nav2">Nhân Viên</a></li>
+                    <li class="divider"></li>
+                    <li><a href="~/NVThanhToan/PhieuThu" class="nav2">Phiếu thu</a></li>
+                    <li class="divider"></li>
+                    <li><a href="~/NVThanhToan/DoanhThu" class="nav2">Doanh thu</a></li>
+                    <li class="divider"></li>
+                    <li><a href="~/NVThanhToan/TaiKhoan" class="nav2">Tài khoản</a></li>
+                    <li class="divider"></li>
+
+                </ul>
+                <div class="right_menu_corner">
+                </div>
+
+                <div class="center_content">
+                    <div class="prod_box">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <!-- end of center content -->
+
+        </div>
+        <!-- end of main content -->
+        <div class="footer">
+            <div class="center_footer">
+                Template name. All Rights Reserved 2008<br />
+            </div>
+            <div class="right_footer"> <a href="http://all-free-download.com/free-website-templates/">home</a> <a href="http://all-free-download.com/free-website-templates/">about</a> <a href="http://all-free-download.com/free-website-templates/">sitemap</a> <a href="http://all-free-download.com/free-website-templates/">rss</a> <a href="contact.html">contact us</a> </div>
+        </div>
+    </div>
+    <!-- end of main_container -->
+
+</body>
+</html>

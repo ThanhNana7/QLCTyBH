@@ -1,0 +1,35 @@
+﻿@model BH.Models.LoaiHang
+
+@{
+    ViewBag.Title = "LH_ChiTiet";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+<div class="center_content">
+    <h2>Thông tin chi tiết mặt hàng</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên Loại:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenLoaiHang)
+            </dd>
+
+            <dt>
+                Hình Ảnh:
+            </dt>
+
+            <dd>
+                <img src="@Url.Content("~/HinhAnh/HinhAnh(LoaiHang)/"+ Model.HinhAnh)" width="200px" />
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "LH_Sua", new { id = Model.MSLH }) |
+        @Html.ActionLink("Quay Lại", "LoaiHang")
+    </p>
+</div>

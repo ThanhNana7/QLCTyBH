@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cửa hàng bách hóa</title>
+
+    <link rel="stylesheet" href="~/login/css/style.css">
+
+</head>
+
+<body>
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div class="container">
+            <div class="login">
+                <h1 class="login-heading">
+                    <strong>Đăng nhập</strong>
+                </h1>
+                <form method="post">
+                    <input type="text" name="TaiKhoan" placeholder="Tài Khoản" required="required" class="input-txt" />
+                    @ViewData["Coloi"]
+                    <input type="password" name="MatKhau" placeholder="Mật Khẩu" required="required" class="input-txt" />
+                    @ViewData["Coloi1"]
+                    <div class="login-footer">
+                        <a href="#" class="lnk">
+                            <span class="icon icon--min">ಠ╭╮ಠ</span>
+                            Have fun with homies
+                        </a>
+                        <button type="submit" class="btn btn--right">Đăng nhập</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="~/login/js/index.js"></script>
+    }
+</body>
+</html>
+

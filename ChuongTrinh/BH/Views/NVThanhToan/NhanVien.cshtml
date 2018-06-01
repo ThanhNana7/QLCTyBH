@@ -1,0 +1,83 @@
+﻿
+@model IEnumerable<BH.Models.NVPhuTrach>
+
+@{
+    ViewBag.Title = "NhanVien";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+<div class="center_content">
+    <h2 style="text-align: center">Quản lý thông tin nhân viên</h2>
+    <p>
+        @Html.ActionLink("Thêm mới", "NV_Them")
+    </p>
+    <table class="table table-striped table-bordered table-hover" id="datatable">
+        <thead>
+            <tr class="info">
+                <th>
+                    Họ Tên:
+                </th>
+                <th>
+                    Phái:
+                </th>
+                <th>
+                    Ngày sinh:
+                </th>
+                <th>
+                    Địa chỉ:
+                </th>
+                <th>
+                    SĐT:
+                </th>
+                <th>
+                    Tài Khoản:
+                </th>
+                <th>
+                    Mật khẩu:
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HoTen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NamSinh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaChi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaiKhoan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MatKhau)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "NV_Sua", new { id = item.MSNV }) |
+                        @Html.ActionLink("Chi tiết", "NV_ChiTiet", new { id = item.MSNV }) |
+                        @Html.ActionLink("Xóa", "NV_Xoa", new { id = item.MSNV })
+                    </td>
+                </tr>
+            }
+
+    </table>
+    @*Tạo liên kết các trang*@
+    @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("NhanVien", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>*@
+</div>

@@ -1,0 +1,64 @@
+﻿@model BH.Models.CTPhieuGH
+
+@{
+    ViewBag.Title = "PG_Sua";
+    Layout = "~/Views/Shared/_LayoutNVPhuTrach.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="center_content">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.SOPG)
+                @Html.HiddenFor(model => model.SOCTPG)
+                @Html.HiddenFor(model => model.MSMH)
+
+                <div class="form-group">
+                    <p class="control-label col-md-2">Số lượng:</p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SoLuongGiao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SoLuongGiao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p class="control-label col-md-2">Đơn Giá:</p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p class="control-label col-md-2">Thành Tiền:</p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ThanhTien, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ThanhTien, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Sửa" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Quay Lại", "PhieuGiao")
+        </div>
+        </div>
+</body>
+</html>

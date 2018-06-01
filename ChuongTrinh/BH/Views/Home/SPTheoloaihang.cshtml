@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BH.Models.MatHang>
+@{
+    ViewBag.Title = "SPTheoloaihang";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<h2 style="text-align:center;color:black">HÀNG HÓA THEO LOẠI</h2>
+
+@foreach (var mathang in Model)
+{
+    <div class="prod_box">
+        <div class="center_prod_box">
+            <div class="product_img">
+                <a href="@Url.Action("ChiTiet", "Home", new { id = mathang.MSMH})">
+                    <img alt="@mathang.TenHang" src="~/HinhAnh/HinhAnh(MatHang)/@mathang.HinhAnh" style="max-height:120px" />
+                </a>
+
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @mathang.TenHang
+                    </h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

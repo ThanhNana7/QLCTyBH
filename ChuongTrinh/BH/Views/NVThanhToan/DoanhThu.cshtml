@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BH.Models.BaoCao>
+@{
+    ViewBag.Title = "DoanhThu";
+    Layout = "~/Views/Shared/_LayoutNVPhuTrach.cshtml";
+}
+
+<html>
+<body>
+    <h3>Báo cáo doanh thu</h3>
+    @*<a class="btn btn-success" href="@Url.Action("InDoanhThu", "NVThanhToan")">IN</a>*@
+    <table class="table table-bordered">
+        <tr>
+            <th>Mã báo cáo</th>
+            <th>Tên</th>
+            <th>Tên nhân viên</th>
+            <th>Ngày tháng</th>
+            <th></th>
+        </tr>
+        @foreach (var item in ViewBag.ListDoanhThu)
+        {
+            <tr>
+                <td>
+                    @item.MaBC
+                </td>
+                <td>
+                    @item.TenBC
+                </td>
+                <td>
+                    @item.NVPhuTrach.HoTenNV
+                </td>
+                <td>
+                    @item.ThangNam
+                </td>
+                <td>
+                    @Html.ActionLink("Chi Tiết", "BC_ChiTiet", new { id = item.MaBC })
+                </td>
+            </tr>
+        }
+    </table>
+    <br /><br />
+
+</body>
+</html>
+

@@ -1,0 +1,74 @@
+﻿@model BH.Models.MatHang
+
+@{
+    ViewBag.Title = "MH_ChiTiet";
+    Layout = "~/Views/Shared/_LayoutNVPhuTrach.cshtml";
+}
+
+<div class="center_content">
+    <h2>Thông tin chi tiết mặt hàng</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên Hàng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenHang)
+            </dd>
+            <dt>
+                Loại Hàng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiHang.TenLoaiHang)
+            </dd>
+
+            <dt>
+                Đơn Giá:
+            </dt>
+
+            <dd>
+                @String.Format("{0:0,0}", Model.DonGia) VNĐ
+            </dd>
+
+            <dt>
+                Số Lượng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuong)
+            </dd>
+
+            <dt>
+                Hình Ảnh:
+            </dt>
+
+            <dd>
+                <img src="@Url.Content("~/HinhAnh/HinhAnh(MatHang)/"+ Model.HinhAnh)" width="120px" />
+            </dd>
+
+            <dt>
+                Ngày Cập Nhật:
+            </dt>
+
+            <dd>
+                @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+            </dd>
+
+            <dt>
+                Trạng Thái:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TrangThai)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "MH_Sua", new { id = Model.MSMH }) |
+        @Html.ActionLink("Quay lại", "MatHang")
+    </p>
+</div>

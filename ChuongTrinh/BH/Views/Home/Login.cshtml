@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/login/css/style.css">
+</head>
+
+<body>
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div class="container">
+            <div class="login">
+
+                <h1 style="color:#4478a0; text-size-adjust:100%; font-size:40px">Vui lòng đăng nhập</h1>
+
+                <form method="post">
+                    <input type="text" name="TaiKhoan" placeholder="Tài Khoản" required="required" class="input-txt" />
+                    @ViewData["Coloi"]
+                    <input type="password" name="MatKhau" placeholder="Mật Khẩu" required="required" class="input-txt" />
+                    @ViewData["Coloi1"]
+                    <div class="login-footer">
+
+                        <button style="font-size:15px; padding:10px; color:#4478a0; background-size:100px; float:right" type="submit">Đăng nhập</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="~/login/js/index.js"></script>
+    }
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BH.Models.MatHang>
+@{
+    ViewBag.Title = "BaoCao";
+    Layout = "~/Views/Shared/_LayoutNVPhuTrach.cshtml";
+}
+
+<html>
+<body>
+    <h3>Danh sách hàng</h3>
+    <a class="btn btn-success" href="@Url.Action("InBaoCao", "NVPhuTrach")">IN</a>
+    <table class="table table-bordered">
+        <tr>
+            <th>Mã mặt hàng</th>
+            <th>Tên mặt hàng</th>
+            <th>Loại hàng</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Ngày cập nhật</th>
+            <th>Trạng thái</th>
+        </tr>
+        @foreach (var item in ViewBag.ListMatHang)
+        {
+            <tr>
+                <td>
+                    @item.MSLH
+                </td>
+                <td>
+                    @item.TenHang
+                </td>
+                <td>
+                    @item.MSLH
+                </td>
+                <td>
+                    @item.DonGia
+                </td>
+                <td>
+                    @item.SoLuong
+                </td>
+
+                <td>
+                    @item.NgayCapNhat
+                </td>
+                <td>
+                    @item.TrangThai
+                </td>
+            </tr>
+        }
+    </table>
+    <br /><br />
+
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+﻿@using BH.Models;
+@model IEnumerable<BH.Models.MatHang>
+
+@{
+    ViewBag.Title = "MatHang";
+    Layout = "~/Views/Shared/_LayoutNVPhuTrach.cshtml";
+}
+<div class="center_content">
+    <h2 style="text-align: center">Quản lý thông tin mặt hàng</h2>
+    <p>
+        @Html.ActionLink("Thêm mới", "MH_Them")
+    </p>
+    <table class="table table-striped table-bordered table-hover" id="datatable">
+        <thead>
+            <tr class="info">
+                <th style="width:200px">Tên mặt hàng</th>
+                <th style="width:200px">Loại hàng</th>
+                <th style="width:200px">Đơn giá</th>
+                <th style="width:200px">Số lượng</th>
+                <th style="width:200px">Hình ảnh</th>
+                <th style="width:200px">Ngày cập nhật</th>
+                <th style="width:200px">Trạng thái</th>
+                <th style="width:200px">  </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoaiHang.TenLoaiHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    <img src="@Url.Content("~/HinhAnh/HinhAnh(MatHang)/"+item.HinhAnh)" style=" max-height:120px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrangThai)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "MH_Sua", new { id = item.MSMH }) |
+                    @Html.ActionLink("Chi Tiết", "MH_ChiTiet", new { id = item.MSMH }) |
+                    @Html.ActionLink("Xóa", "MH_Xoa", new { id = item.MSMH })
+                </td>
+            </tr>
+        }
+    </table>
+    @*Tạo liên kết các trang*@
+    @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("MatHang", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>*@
+    @*<script>
+        $(document).ready(function () {
+            $('#mydata').DataTable({
+                "ajax": {
+                    "url":"/NVPhuTrach/MatHang",
+                    "type": "GET",
+                    "datatype":"json"
+                },
+                "columns" :{
+                    {"data":"TenHang","autoWidth":true},
+                    {"data":"LoaiHang","autoWidth":true},
+                    {"data":"DonGia","autoWidth":true},
+                    {"data":"SoLuong","autoWidth":true},
+                    {"data":"HinhAnh","autoWidth":true},
+                    {"data":"TrangThai","autoWidth":true},
+                    {"data":"NgayCapNhat","autoWidth":true},
+                },
+            });
+        });
+    </script>*@
+</div>

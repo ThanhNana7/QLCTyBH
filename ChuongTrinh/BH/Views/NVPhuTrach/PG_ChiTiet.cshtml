@@ -1,0 +1,74 @@
+﻿@model BH.Models.CTPhieuGH
+
+@{
+    ViewBag.Title = "PG_ChiTiet";
+    Layout = "~/Views/Shared/_LayoutNVPhuTrach.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="center_content">
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Phiếu:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhieuGiaoHang.SOPG)
+                </dd>
+                <dt>
+                    Tên Hàng:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MatHang.TenHang)
+                </dd>
+
+                <dt>
+                    Trạng Thái:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhieuGiaoHang.TrangThai)
+                </dd>
+
+                <dt>
+                    Số Lượng:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SoLuongGiao)
+                </dd>
+
+                <dt>
+                    Đơn Giá:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DonGia)
+                </dd>
+
+                <dt>
+                    Thành Tiền
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ThanhTien)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Sửa", "PG_Sửa", new {  id = Model.SOCTPG }) |
+            @Html.ActionLink("QuayLai", "PhieuGiao")
+        </p>
+        </div>
+</body>
+</html>

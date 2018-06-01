@@ -1,0 +1,65 @@
+﻿@model BH.Models.CuaHang
+
+@{
+    ViewBag.Title = "CH_Xoa";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+
+<div class="center_content">
+
+    <h3>Bạn có chắc muốn xóa cửa hàng này?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên Cửa Hàng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenCH)
+            </dd>
+
+            <dt>
+                Tên Loại:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiHang.TenLoaiHang)
+            </dd>
+
+            <dt>
+                Địa Chỉ
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+
+            <dt>
+                SĐT
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+
+            <dt>
+                Nhân viên phụ trách:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NVPhuTrach1.HoTen)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Quay lại", "CuaHang")
+            </div>
+        }
+    </div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BH.Models.LoaiHang>
+
+@{
+    ViewBag.Title = "LoaiHang";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+
+<div class="center_content">
+    <h2 style="text-align: center">Quản lý thông tin loại hàng</h2>
+
+    <p>
+        @Html.ActionLink("Thêm mới", "LH_Them")
+    </p>
+    <table class="table table-striped table-bordered table-hover" id="datatable">
+        <thead>
+            <tr class="info">
+                <th style="width:200px">Tên loại hàng</th>
+                <th style="width:200px">Hình ảnh</th>
+                <th style="width:200px"> </th>
+            </tr>
+        </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenLoaiHang)
+                    </td>
+                    <td>
+                        <img src="@Url.Content("~/HinhAnh/HinhAnh(LoaiHang)/"+item.HinhAnh)" style=" max-height:120px" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "LH_Sua", new { id = item.MSLH }) |
+                        @Html.ActionLink("Chi tiết", "LH_ChiTiet", new { id = item.MSLH }) |
+                        @Html.ActionLink("Xóa", "LH_Xoa", new { id = item.MSLH })
+                    </td>
+                </tr>
+            }
+
+    </table>
+    @*Tạo liên kết các trang*@
+    @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("LoaiHang", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>*@
+</div>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<BH.Models.NVThanhToan>
+@{
+    ViewBag.Title = "TaiKhoan";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+
+<div class="center_content">
+    @if (Session["HoTen"] != null)
+    {
+        <h3>Thông tin tài khoản</h3>
+        <text >
+        <p>@Session["HoTen"].ToString() </p>
+        <p>@Session["Phai"].ToString() </p>
+        <p>@Session["NamSinh"].ToString() </p>
+        <p>@Session["DiaChi"].ToString() </p>
+        <p>@Session["SDT"].ToString() </p>
+        </text>
+    }
+</div>

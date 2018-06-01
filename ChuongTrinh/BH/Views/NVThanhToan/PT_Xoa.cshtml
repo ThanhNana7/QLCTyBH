@@ -1,0 +1,74 @@
+﻿@model BH.Models.CTPhieuTT
+
+@{
+    ViewBag.Title = "PT_Xoa";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="center_content">
+        <h3>Bạn có chắc muốn xóa phiếu này</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Tên hàng:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MatHang.TenHang)
+                </dd>
+
+                <dt>
+                    Trạng Thái:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhieuThanhToan.TrangThai)
+                </dd>
+
+                <dt>
+                    Số Lượng:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SoLuongBan)
+                </dd>
+
+                <dt>
+                    Đơn Giá:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DonGia)
+                </dd>
+
+                <dt>
+                    Thành Tiền
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ThanhTien)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Quay lại", "PhieuThu")
+                </div>
+            }
+        </div>
+        </div>
+</body>
+</html>

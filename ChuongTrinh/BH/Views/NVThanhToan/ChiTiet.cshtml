@@ -1,0 +1,72 @@
+﻿@model BH.Models.NVThanhToan
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+
+<div class="center_content">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ Tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            Phái:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phai)
+        </dd>
+
+        <dt>
+            Năm Sinh:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.NamSinh)
+        </dd>
+
+        <dt>
+            Địa Chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            SĐT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Tài Khoản:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+
+        <dt>
+            Mật khẩu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Quay lại", "Index")
+</p>
+</div>

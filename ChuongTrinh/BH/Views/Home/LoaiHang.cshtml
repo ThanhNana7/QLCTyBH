@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BH.Models.LoaiHang>
+<div class="title_box"> LOẠI HÀNG </div>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <ul class="left_menu">
+            <li class="odd">
+                <a href="@Url.Action("SPTheoLoaiHang", "Home", new { id = item.MSLH})" class="list-group-item">
+                    @item.TenLoaiHang
+                </a>
+            </li>
+        </ul>
+    }
+</div>

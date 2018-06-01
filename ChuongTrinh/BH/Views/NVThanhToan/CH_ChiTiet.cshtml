@@ -1,0 +1,61 @@
+﻿@model BH.Models.CuaHang
+
+@{
+    ViewBag.Title = "CH_ChiTiet";
+    Layout = "~/Views/Shared/_LayoutNVThanhToan.cshtml";
+}
+
+<div class="center_content">
+    <h2>Thông tin chi tiết cửa hàng</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                Tên Cửa Hàng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenCH)
+            </dd>
+
+            <dt>
+                Tên Loại:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiHang.TenLoaiHang)
+            </dd>
+
+            <dt>
+                Địa Chỉ
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+
+            <dt>
+                SĐT
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+
+            <dt>
+                Nhân viên phụ trách:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NVPhuTrach1.HoTen)
+            </dd>
+
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "CH_Sua", new { id = Model.MSCH }) |
+        @Html.ActionLink("Quay Lại", "CuaHang")
+    </p>
+</div>

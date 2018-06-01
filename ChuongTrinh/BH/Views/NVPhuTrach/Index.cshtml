@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BH.Models.NVPhuTrach>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutNVPhuTrach.cshtml";
+}
+<div class="center_content">
+    @if (Session["HoTen"] != null)
+    {
+        <text >
+            <h3>Chào mừng @Session["HoTen"].ToString() !</h3>
+        </text>
+    }
+</div>
+
+
